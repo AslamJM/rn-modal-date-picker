@@ -1,18 +1,32 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'rn-modal-date-picker';
+import { StyleSheet, View, Text, Button } from 'react-native';
+import DatePickerModal from 'rn-modal-date-picker';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [date, setDate] = React.useState(new Date());
+  const [show, setShow] = React.useState(false);
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const openDatePicker = () => {
+    setShow(true);
+  };
+
+  const closeDatePicker = () => {
+    setShow(false);
+  };
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <DatePickerModal
+        date={date}
+        setDate={setDate}
+        onHideModal={closeDatePicker}
+        isVisible={show}
+        mainColor="#ddd111"
+        contrastColor="#fff"
+      />
+      <Button title="Open" onPress={openDatePicker} />
+      <Text>{date.toDateString()}</Text>
     </View>
   );
 }

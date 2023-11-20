@@ -1,6 +1,6 @@
 # rn-modal-date-picker
 
-date picker with modal popup
+plateform independant date picker modal for react native
 
 ## Installation
 
@@ -8,14 +8,40 @@ date picker with modal popup
 npm install rn-modal-date-picker
 ```
 
+### sample   
+
+![](https://github.com/AslamJM/rn-modal-date-picker/sample.gif)
+
 ## Usage
 
-```js
-import { multiply } from 'rn-modal-date-picker';
+```ts
+onst [date, setDate] = React.useState(new Date());
+  const [show, setShow] = React.useState(false);
 
+  const openDatePicker = () => {
+    setShow(true);
+  };
+
+  const closeDatePicker = () => {
+    setShow(false);
+  };
+
+  return (
+    <View style={styles.container}>
+      <DatePickerModal
+        date={date}
+        setDate={setDate}
+        onHideModal={closeDatePicker}
+        isVisible={show}
+        mainColor="#ddd111"
+        contrastColor="#fff"
+      />
+      <Button title="Open" onPress={openDatePicker} />
+      <Text>{date.toDateString()}</Text>
+    </View>
+  );
 // ...
 
-const result = await multiply(3, 7);
 ```
 
 ## Contributing

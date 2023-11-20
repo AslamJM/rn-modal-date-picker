@@ -1,7 +1,7 @@
 {
   "name": "rn-modal-date-picker",
-  "version": "0.1.0",
-  "description": "date picker with modal popup",
+  "version": "0.1.1",
+  "description": "React native platform independant javascript date picker modal",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -36,8 +36,9 @@
   },
   "keywords": [
     "react-native",
-    "ios",
-    "android"
+    "date-picker",
+    "modal",
+    "rn-date-picker"
   ],
   "repository": "https://github.com/AslamJM/rn-modal-date-picker",
   "author": "AslamJM <jma8744@gmail.com> (https://github.com/AslamJM)",

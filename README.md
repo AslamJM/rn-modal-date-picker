@@ -10,7 +10,7 @@ npm install rn-modal-date-picker
 
 ### sample   
 
-![](https://github.com/AslamJM/rn-modal-date-picker/sample.gif)
+![](https://github.com/AslamJM/rn-modal-date-picker/blob/main/sample.gif)
 
 ## Usage
 

@@ -15,7 +15,13 @@ npm install rn-modal-date-picker
 ## Usage
 
 ```ts
-onst [date, setDate] = React.useState(new Date());
+import * as React from 'react';
+
+import { StyleSheet, View, Text, Button } from 'react-native';
+import DatePickerModal from 'rn-modal-date-picker';
+
+export default function App() {
+  const [date, setDate] = React.useState(new Date());
   const [show, setShow] = React.useState(false);
 
   const openDatePicker = () => {
@@ -40,18 +46,23 @@ onst [date, setDate] = React.useState(new Date());
       <Text>{date.toDateString()}</Text>
     </View>
   );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  box: {
+    width: 60,
+    height: 60,
+    marginVertical: 20,
+  },
+});
+
 // ...
 
 ```
 
-## Contributing
 
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
-## License
-
-MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)

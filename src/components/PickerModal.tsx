@@ -24,6 +24,7 @@ type ModalProps = {
   setDate: React.Dispatch<React.SetStateAction<Date>>;
   mainColor?: string;
   contrastColor?: string;
+  fontFamily?: string;
 };
 
 const PickerModal = ({
@@ -36,6 +37,7 @@ const PickerModal = ({
   setDate,
   mainColor,
   contrastColor,
+  fontFamily,
 }: ModalProps) => {
   const [deviceWidth, setDeviceWidth] = React.useState(
     Dimensions.get('window').width
@@ -157,6 +159,7 @@ const PickerModal = ({
                 onPressCancel={onHideModal}
                 mainColor={mainColor}
                 contrastColor={contrastColor}
+                fontFamily={fontFamily}
               />
             </Animated.View>
           )}

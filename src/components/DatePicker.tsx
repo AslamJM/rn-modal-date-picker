@@ -29,6 +29,7 @@ type PickerProps = {
   setDate: React.Dispatch<React.SetStateAction<Date>>;
   mainColor?: string;
   contrastColor?: string;
+  fontFamily?: string;
 };
 
 const DatePicker = ({
@@ -37,9 +38,14 @@ const DatePicker = ({
   setDate,
   mainColor,
   contrastColor,
+  fontFamily,
 }: PickerProps) => {
   const stylesfunc = useCallback(() => {
-    return stylesGenerator(mainColor || '#ddd111', contrastColor || '#fff');
+    return stylesGenerator(
+      mainColor || '#ddd111',
+      contrastColor || '#fff',
+      fontFamily
+    );
   }, [mainColor]);
 
   const styles = stylesfunc();
@@ -289,7 +295,7 @@ const DatePicker = ({
       <View style={styles.header}>
         <View>
           <TouchableOpacity style={styles.yearBtn} onPress={showYearPicker}>
-            <Text>{year}</Text>
+            <Text style={styles.selectorTexts}>{year}</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.monthContainer}>
@@ -301,7 +307,7 @@ const DatePicker = ({
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.monthBtn} onPress={showMonthPicker}>
-            <Text>{getMonthName(month)}</Text>
+            <Text style={styles.selectorTexts}>{getMonthName(month)}</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={onPressChevronRight}>
             <Image

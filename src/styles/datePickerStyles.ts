@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const styles = (color: string, contrast: string) => {
+const styles = (color: string, contrast: string, fontFamily?: string) => {
   return StyleSheet.create({
     body: {
       backgroundColor: '#fff',
@@ -55,6 +55,7 @@ const styles = (color: string, contrast: string) => {
     },
     weekText: {
       fontWeight: '600',
+      fontFamily: fontFamily,
     },
 
     calnederRow: {
@@ -75,7 +76,7 @@ const styles = (color: string, contrast: string) => {
       borderRadius: 4,
     },
 
-    dateText: { textAlign: 'center' },
+    dateText: { textAlign: 'center', fontFamily: fontFamily },
     pickedDateText: {
       color: contrast,
     },
@@ -101,6 +102,7 @@ const styles = (color: string, contrast: string) => {
 
     buttonText: {
       color: contrast,
+      fontFamily: fontFamily,
     },
 
     // year picker
@@ -135,6 +137,7 @@ const styles = (color: string, contrast: string) => {
     },
     yearSelectorText: {
       fontWeight: '500',
+      fontFamily: fontFamily,
     },
     selectedYearText: {
       color: contrast,
@@ -172,6 +175,9 @@ const styles = (color: string, contrast: string) => {
       borderWidth: 1,
       borderColor: color,
       borderRadius: 8,
+    },
+    selectorTexts: {
+      fontFamily: fontFamily,
     },
   });
 };

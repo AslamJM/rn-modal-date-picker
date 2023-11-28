@@ -24,6 +24,7 @@ export default function App() {
         isVisible={show}
         mainColor="#ddd111"
         contrastColor="#fff"
+        disablepast={true}
       />
       <Button title="Open" onPress={openDatePicker} />
       <Text>{date.toDateString()}</Text>

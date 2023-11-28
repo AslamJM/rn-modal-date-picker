@@ -39,7 +39,7 @@ const PickerModal = ({
   mainColor,
   contrastColor,
   fontFamily,
-  disablepast,
+  disablepast = false,
 }: ModalProps) => {
   const [deviceWidth, setDeviceWidth] = React.useState(
     Dimensions.get('window').width

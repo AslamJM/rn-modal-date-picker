@@ -40,7 +40,7 @@ const DatePicker = ({
   mainColor,
   contrastColor,
   fontFamily,
-  disablePast = false,
+  disablePast,
 }: PickerProps) => {
   const stylesfunc = useCallback(() => {
     return stylesGenerator(
@@ -344,7 +344,9 @@ const DatePicker = ({
                     <TouchableOpacity
                       key={`date-${index}`}
                       disabled={
-                        disablePast && new Date() > new Date(year, month, date)
+                        disablePast &&
+                        new Date(new Date().setHours(0, 0, 0, 0)) >
+                          new Date(year, month, date)
                       }
                       style={[
                         styles.calnederRowDate,
@@ -360,8 +362,9 @@ const DatePicker = ({
                           sameDay(pickedDate, new Date(year, month, date))
                             ? styles.pickedDateText
                             : null,
+                          disablePast &&
                           new Date(new Date().setHours(0, 0, 0, 0)) >
-                          new Date(year, month, date)
+                            new Date(year, month, date)
                             ? styles.disabledDateText
                             : null,
                         ]}

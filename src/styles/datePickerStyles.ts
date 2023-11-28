@@ -77,6 +77,11 @@ const styles = (color: string, contrast: string, fontFamily?: string) => {
     },
 
     dateText: { textAlign: 'center', fontFamily: fontFamily },
+
+    disabledDateText: {
+      color: '#d0d3d3',
+    },
+
     pickedDateText: {
       color: contrast,
     },
@@ -169,8 +174,8 @@ const styles = (color: string, contrast: string, fontFamily?: string) => {
       justifyContent: 'center',
       padding: 5,
       marginVertical: 5,
-      marginHorizontal: 15,
-      width: 50,
+      marginHorizontal: 10,
+      width: 60,
       height: 50,
       borderWidth: 1,
       borderColor: color,

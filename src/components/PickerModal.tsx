@@ -25,6 +25,7 @@ type ModalProps = {
   mainColor?: string;
   contrastColor?: string;
   fontFamily?: string;
+  disablepast?: boolean;
 };
 
 const PickerModal = ({
@@ -38,6 +39,7 @@ const PickerModal = ({
   mainColor,
   contrastColor,
   fontFamily,
+  disablepast,
 }: ModalProps) => {
   const [deviceWidth, setDeviceWidth] = React.useState(
     Dimensions.get('window').width
@@ -160,6 +162,7 @@ const PickerModal = ({
                 mainColor={mainColor}
                 contrastColor={contrastColor}
                 fontFamily={fontFamily}
+                disablePast={disablepast}
               />
             </Animated.View>
           )}

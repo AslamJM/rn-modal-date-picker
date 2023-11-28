@@ -8,7 +8,7 @@ plateform independant date picker modal for react native
 npm install rn-modal-date-picker
 ```
 
-### sample   
+### sample
 
 ![](https://github.com/AslamJM/rn-modal-date-picker/blob/main/sample.gif)
 
@@ -42,6 +42,7 @@ export default function App() {
         mainColor="#ddd111"
         contrastColor="#fff"
         fontFamily="PublicSans_Light"
+        disablePast={true}
       />
       <Button title="Open" onPress={openDatePicker} />
       <Text>{date.toDateString()}</Text>
@@ -63,7 +64,4 @@ const styles = StyleSheet.create({
 });
 
 // ...
-
 ```
-
-

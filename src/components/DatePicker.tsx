@@ -31,6 +31,7 @@ type PickerProps = {
   contrastColor?: string;
   fontFamily?: string;
   disablePast?: boolean;
+  disableFuture?: boolean;
 };
 
 const DatePicker = ({
@@ -41,6 +42,7 @@ const DatePicker = ({
   contrastColor,
   fontFamily,
   disablePast,
+  disableFuture,
 }: PickerProps) => {
   const stylesfunc = useCallback(() => {
     return stylesGenerator(
@@ -344,9 +346,12 @@ const DatePicker = ({
                     <TouchableOpacity
                       key={`date-${index}`}
                       disabled={
-                        disablePast &&
-                        new Date(new Date().setHours(0, 0, 0, 0)) >
-                          new Date(year, month, date)
+                        (disablePast &&
+                          new Date(new Date().setHours(0, 0, 0, 0)) >
+                            new Date(year, month, date)) ||
+                        (disableFuture &&
+                          new Date(new Date().setHours(0, 0, 0, 0)) <
+                            new Date(year, month, date))
                       }
                       style={[
                         styles.calnederRowDate,
@@ -367,6 +372,11 @@ const DatePicker = ({
                             new Date(year, month, date)
                             ? styles.disabledDateText
                             : null,
+                          disableFuture &&
+                          new Date(new Date().setHours(0, 0, 0, 0)) <
+                            new Date(year, month, date)
+                            ? styles.disabledDateText
+                            : null,
                         ]}
                       >
                         {date}
@@ -383,7 +393,8 @@ const DatePicker = ({
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            setDate(new Date(year, month, pickedDate.getDate()));
+            let datein = `${year}-${month + 1}-${pickedDate.getDate()}`;
+            setDate(new Date(datein));
             onPressCancel();
           }}
         >

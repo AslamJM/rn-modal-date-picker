@@ -25,6 +25,7 @@ export default function App() {
         mainColor="#ddd111"
         contrastColor="#fff"
         disablepast={true}
+        disabelFuture={true}
       />
       <Button title="Open" onPress={openDatePicker} />
       <Text>{date.toDateString()}</Text>

@@ -43,7 +43,7 @@ export default function App() {
         contrastColor="#fff"
         fontFamily="PublicSans_Light"
         disablePast={true}
-        //disableFuture = {true}
+        disableFuture = {true}
       />
       <Button title="Open" onPress={openDatePicker} />
       <Text>{date.toDateString()}</Text>

@@ -22,6 +22,9 @@ import {
 } from '../utils/date';
 import icons from '../icons';
 import stylesGenerator from '../styles/datePickerStyles';
+import type { StyleProp } from 'react-native';
+import type { TextStyle } from 'react-native';
+import type { ViewStyle } from 'react-native';
 
 type PickerProps = {
   onPressCancel: () => void;
@@ -32,6 +35,14 @@ type PickerProps = {
   fontFamily?: string;
   disablePast?: boolean;
   disableFuture?: boolean;
+  dateTextStyle?: StyleProp<TextStyle>;
+  monthTextStyle?: StyleProp<TextStyle>;
+  yearTextStyle?: StyleProp<TextStyle>;
+  okButtonStyle?: StyleProp<ViewStyle>;
+  cancelButtonStyle?: StyleProp<ViewStyle>;
+  weekTextStyle?: StyleProp<TextStyle>;
+  okButtonTextStyle?: StyleProp<TextStyle>;
+  cancelButtonTextStyle?: StyleProp<TextStyle>;
 };
 
 const DatePicker = ({
@@ -43,6 +54,14 @@ const DatePicker = ({
   fontFamily,
   disablePast,
   disableFuture,
+  dateTextStyle,
+  monthTextStyle,
+  yearTextStyle,
+  weekTextStyle,
+  okButtonStyle,
+  cancelButtonStyle,
+  okButtonTextStyle,
+  cancelButtonTextStyle,
 }: PickerProps) => {
   const stylesfunc = useCallback(() => {
     return stylesGenerator(
@@ -194,6 +213,7 @@ const DatePicker = ({
                 <Text
                   style={[
                     styles.yearSelectorText,
+                    yearTextStyle,
                     item === year ? styles.pickedDateText : null,
                   ]}
                 >
@@ -271,6 +291,7 @@ const DatePicker = ({
                 <Text
                   style={[
                     styles.yearSelectorText,
+                    monthTextStyle,
                     month === index ? styles.selectedYearText : null,
                   ]}
                 >
@@ -279,6 +300,7 @@ const DatePicker = ({
                 <Text
                   style={[
                     styles.yearSelectorText,
+                    monthTextStyle,
                     month === index ? styles.selectedYearText : null,
                   ]}
                 >
@@ -326,7 +348,7 @@ const DatePicker = ({
         <View style={styles.weekContainer}>
           {weekDays().map((wd) => (
             <View key={wd} style={styles.weekTab}>
-              <Text style={styles.weekText}>{wd}</Text>
+              <Text style={[styles.weekText, weekTextStyle]}>{wd}</Text>
             </View>
           ))}
         </View>
@@ -364,6 +386,7 @@ const DatePicker = ({
                       <Text
                         style={[
                           styles.dateText,
+                          dateTextStyle,
                           sameDay(pickedDate, new Date(year, month, date))
                             ? styles.pickedDateText
                             : null,
@@ -391,17 +414,22 @@ const DatePicker = ({
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-          style={styles.button}
+          style={[styles.button, okButtonStyle]}
           onPress={() => {
             let datein = `${year}-${month + 1}-${pickedDate.getDate()}`;
             setDate(new Date(datein));
             onPressCancel();
           }}
         >
-          <Text style={styles.buttonText}>OK</Text>
+          <Text style={[styles.buttonText, okButtonTextStyle]}>OK</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={onPressCancel}>
-          <Text style={styles.buttonText}>CANCEL</Text>
+        <TouchableOpacity
+          style={[styles.cancelButton, cancelButtonStyle]}
+          onPress={onPressCancel}
+        >
+          <Text style={[styles.cancelButtonText, cancelButtonTextStyle]}>
+            CANCEL
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

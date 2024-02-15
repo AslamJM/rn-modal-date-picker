@@ -24,8 +24,33 @@ export default function App() {
         isVisible={show}
         mainColor="#ddd111"
         contrastColor="#fff"
-        disablepast={true}
-        disabelFuture={true}
+        okButtonStyle={{
+          borderRadius: 10,
+          backgroundColor: '#116e22',
+        }}
+        cancelButtonStyle={{
+          height: 60,
+          borderWidth: 3,
+        }}
+        cancelButtonTextStyle={{
+          fontWeight: '800',
+        }}
+        okButtonTextStyle={{
+          letterSpacing: 1.6,
+        }}
+        weekTextStyle={{
+          color: '#dd11ee',
+          fontSize: 15,
+        }}
+        dateTextStyle={{
+          color: '#111488',
+        }}
+        monthTextStyle={{
+          color: '#22335f',
+        }}
+        yearTextStyle={{
+          color: '#22ff55',
+        }}
       />
       <Button title="Open" onPress={openDatePicker} />
       <Text>{date.toDateString()}</Text>

@@ -7,6 +7,7 @@ import {
   TouchableWithoutFeedback,
   type StyleProp,
   type ViewStyle,
+  type TextStyle,
   View,
 } from 'react-native';
 
@@ -20,6 +21,8 @@ type ModalProps = {
   onHideModal: () => void;
   backdropStyles?: StyleProp<ViewStyle>;
   contentStyles?: StyleProp<ViewStyle>;
+  okButtonStyle?: StyleProp<ViewStyle>;
+  cancelButtonStyle?: StyleProp<ViewStyle>;
   date: Date;
   setDate: React.Dispatch<React.SetStateAction<Date>>;
   mainColor?: string;
@@ -27,6 +30,12 @@ type ModalProps = {
   fontFamily?: string;
   disablepast?: boolean;
   disabelFuture?: boolean;
+  dateTextStyle?: StyleProp<TextStyle>;
+  monthTextStyle?: StyleProp<TextStyle>;
+  yearTextStyle?: StyleProp<TextStyle>;
+  weekTextStyle?: StyleProp<TextStyle>;
+  okButtonTextStyle?: StyleProp<TextStyle>;
+  cancelButtonTextStyle?: StyleProp<TextStyle>;
 };
 
 const PickerModal = ({
@@ -42,6 +51,14 @@ const PickerModal = ({
   fontFamily,
   disablepast = false,
   disabelFuture = false,
+  dateTextStyle,
+  monthTextStyle,
+  yearTextStyle,
+  okButtonStyle,
+  okButtonTextStyle,
+  cancelButtonStyle,
+  cancelButtonTextStyle,
+  weekTextStyle,
 }: ModalProps) => {
   const [deviceWidth, setDeviceWidth] = React.useState(
     Dimensions.get('window').width
@@ -166,6 +183,14 @@ const PickerModal = ({
                 fontFamily={fontFamily}
                 disablePast={disablepast}
                 disableFuture={disabelFuture}
+                dateTextStyle={dateTextStyle}
+                monthTextStyle={monthTextStyle}
+                yearTextStyle={yearTextStyle}
+                okButtonStyle={okButtonStyle}
+                cancelButtonStyle={cancelButtonStyle}
+                okButtonTextStyle={okButtonTextStyle}
+                cancelButtonTextStyle={cancelButtonTextStyle}
+                weekTextStyle={weekTextStyle}
               />
             </Animated.View>
           )}

@@ -56,6 +56,7 @@ const styles = (color: string, contrast: string, fontFamily?: string) => {
     weekText: {
       fontWeight: '600',
       fontFamily: fontFamily,
+      color: '#111111',
     },
 
     calnederRow: {
@@ -103,6 +104,22 @@ const styles = (color: string, contrast: string, fontFamily?: string) => {
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 4,
+    },
+
+    cancelButton: {
+      borderWidth: 1,
+      borderColor: color,
+      width: 100,
+      paddingHorizontal: 10,
+      paddingVertical: 8,
+      marginHorizontal: 15,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 4,
+    },
+
+    cancelButtonText: {
+      color: '#111111',
     },
 
     buttonText: {

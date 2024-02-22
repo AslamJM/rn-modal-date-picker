@@ -1,6 +1,6 @@
 {
   "name": "rn-modal-date-picker",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "React native platform independant javascript date picker modal",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

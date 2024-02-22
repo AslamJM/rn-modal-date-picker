@@ -1,4 +1,8 @@
+import { Appearance } from 'react-native';
 import { StyleSheet } from 'react-native';
+
+const textColorAndroid =
+  Appearance.getColorScheme() === 'dark' ? '#616161' : '#212121';
 
 const styles = (color: string, contrast: string, fontFamily?: string) => {
   return StyleSheet.create({
@@ -200,6 +204,7 @@ const styles = (color: string, contrast: string, fontFamily?: string) => {
     },
     selectorTexts: {
       fontFamily: fontFamily,
+      color: textColorAndroid,
     },
   });
 };
